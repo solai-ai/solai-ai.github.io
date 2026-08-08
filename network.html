@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Network | SOLAI Network</title>
+    <meta name="description" content="SOLAI Network participants, providers, compute marketplace, clusters and AI agent economy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="index.html">Home</a><a href="technology.html">Technology</a><a class="active" href="network.html">Network</a><a href="token.html">Token</a><a href="roadmap.html">Roadmap</a><a href="whitepaper.html">Whitepaper</a><a href="sources.html">Sources</a></div><div class="nav-actions"><a class="btn primary" data-pump-link href="https://pump.fun/">Support on Pump.fun</a></div></nav></header>
+    <main>
+      <section class="page-hero"><div class="section-inner"><span class="eyebrow">Network</span><h1>Independent providers become one logical AI infrastructure layer.</h1><p class="lead">The network connects users, AI agents, local models, independent compute providers, decentralized marketplaces and temporary clusters coordinated by SOLAI Coder.</p></div></section>
+      <section class="section">
+        <div class="section-inner">
+          <div class="grid three">
+            <article class="card"><h3>Users</h3><p>Run AI locally, rent remote compute, or authorize an agent to spend within explicit compute limits.</p></article>
+            <article class="card"><h3>Providers</h3><p>Contribute idle CPU/GPU capacity, set prices, define schedules, advertise compatible models and retain hardware control.</p></article>
+            <article class="card"><h3>Agents</h3><p>Search the marketplace, select providers, create clusters and complete complex work under user-defined budgets.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section alt">
+        <div class="section-inner">
+          <div class="section-head"><div><span class="eyebrow">Two Marketplaces</span><h2>Buy compute directly or buy an outcome through a cluster.</h2></div><p>Level 1 is provider rental. Level 2 is SOLAI Coder assembling providers into a temporary execution environment for a specific result.</p></div>
+          <div class="grid two">
+            <article class="card"><h3>Compute Marketplace</h3><p>Filter providers by model, GPU, VRAM, price, latency, uptime, reputation, region and availability.</p><pre><code>solai compute list --model SOLAI-80B --max-price 15</code></pre></article>
+            <article class="card"><h3>Cluster Marketplace</h3><p>Submit a task and let SOLAI Coder determine the worker count, model mix, deadline strategy and maximum budget.</p><pre><code>solai coder "Analyze 50,000 documents"</code></pre></article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head"><div><span class="eyebrow">Provider Lifecycle</span><h2>Voluntary participation with explicit boundaries.</h2></div><p>SOLAI is an inference network, not a remote shell marketplace. Consumers submit AI jobs; providers define resource limits and can leave under graceful shutdown rules.</p></div>
+          <div class="flow"><div class="flow-step"><span>1</span><h3>Register</h3><p>Wallet, hardware and model metadata.</p></div><div class="flow-step"><span>2</span><h3>Heartbeat</h3><p>Signed status and capacity reports.</p></div><div class="flow-step"><span>3</span><h3>Available</h3><p>Provider appears in discovery index.</p></div><div class="flow-step"><span>4</span><h3>Busy</h3><p>Jobs execute through runtime limits.</p></div><div class="flow-step"><span>5</span><h3>Settle</h3><p>Validated work receives escrow payment.</p></div></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a></div><div class="footer-links"><a href="technology.html">Technology</a><a href="roadmap.html">Roadmap</a><a href="whitepaper.html">Whitepaper</a></div></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

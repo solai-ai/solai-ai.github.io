@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Technology | SOLAI Network</title>
+    <meta name="description" content="SOLAI technology architecture: Ollama providers, Solana settlement, task graphs, proof of compute and SOLAI Coder orchestration.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Home</a><a class="active" href="technology.html">Technology</a><a href="network.html">Network</a><a href="token.html">Token</a><a href="roadmap.html">Roadmap</a><a href="whitepaper.html">Whitepaper</a><a href="sources.html">Sources</a>
+        </div>
+        <div class="nav-actions"><a class="btn primary" data-pump-link href="https://pump.fun/">Support on Pump.fun</a></div>
+      </nav>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="section-inner">
+          <span class="eyebrow">Technology</span>
+          <h1>A decentralized AI compute stack built around local-first inference and agent orchestration.</h1>
+          <p class="lead">SOLAI separates economic state from inference traffic: Solana handles ownership, staking, registry, leases, escrow and settlement; providers handle off-chain model execution.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-inner">
+          <div class="grid three">
+            <article class="card"><h3>Local Runtime</h3><p>Ollama-compatible models let users run AI locally and let providers expose compatible models without handing over machine control.</p></article>
+            <article class="card"><h3>Solana Protocol</h3><p>On-chain programs coordinate staking, provider registration, leases, cluster accounts, job commitments, escrow and settlement.</p></article>
+            <article class="card"><h3>SOLAI Coder</h3><p>The planner decomposes requests into task graphs, selects models and providers, manages budgets, retries failed jobs and aggregates results.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="section alt">
+        <div class="section-inner">
+          <div class="section-head">
+            <div><span class="eyebrow">Control Loop</span><h2>From intent to validated result.</h2></div>
+            <p>The system is designed to let a user specify task, budget, deadline and quality while the protocol and SOLAI Coder handle infrastructure complexity.</p>
+          </div>
+          <div class="console">
+            <div class="console-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><code>USER REQUEST
+  -> UNDERSTAND
+  -> PLAN
+  -> DECOMPOSE
+  -> ESTIMATE COST
+  -> FIND PROVIDERS
+  -> BUILD CLUSTER
+  -> EXECUTE
+  -> VALIDATE
+  -> AGGREGATE
+  -> FINAL RESULT</code></pre>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div><span class="eyebrow">Trust Model</span><h2>Proof of Compute starts pragmatic and improves over time.</h2></div>
+            <p>The whitepaper does not claim perfect cryptographic verification at launch. The first layer uses signed jobs, model hashes, execution metadata and result validation, with redundant execution and challenge jobs added progressively.</p>
+          </div>
+          <table class="table">
+            <tr><th>Layer</th><th>Purpose</th></tr>
+            <tr><td>Signed Job</td><td>Binds job ID, provider identity, model, timing, status and signature.</td></tr>
+            <tr><td>Model Hash</td><td>Reduces simple model substitution by requiring identifiable model artifacts.</td></tr>
+            <tr><td>Replication</td><td>Runs critical work across multiple providers to compare outputs.</td></tr>
+            <tr><td>Future Verification</td><td>Challenge jobs, TEEs, confidential execution and verifiable compute research.</td></tr>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a></div><div class="footer-links"><a href="network.html">Network</a><a href="whitepaper.html">Whitepaper</a><a href="sources.html">Sources</a></div></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
