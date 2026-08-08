@@ -9,7 +9,7 @@ if (toggle && nav) {
 }
 
 const pumpLinks = document.querySelectorAll("[data-pump-link]");
-const configuredPumpUrl = window.SOLAI_PUMP_URL || "https://pump.fun/";
+const configuredPumpUrl = window.SOLAI_PUMP_URL || "https://pump.fun/coin/Hy9XZ4Ae4oKtXYfuFzWkoNV18teCTpvWWu5PFD9Bpump";
 
 pumpLinks.forEach((link) => {
   link.href = configuredPumpUrl;
