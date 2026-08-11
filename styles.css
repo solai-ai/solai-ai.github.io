@@ -63,7 +63,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .brand {
@@ -86,9 +86,10 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -330,7 +331,8 @@ h3 {
 
 .card p,
 .feature p,
-.timeline p {
+.timeline p,
+.model-card p {
   color: var(--muted);
   margin: 14px 0 0;
 }
@@ -457,6 +459,55 @@ pre {
   background: rgba(34, 231, 255, 0.06);
 }
 
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.model-card {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  border: 1px solid rgba(34, 231, 255, 0.2);
+  background:
+    linear-gradient(180deg, rgba(34, 231, 255, 0.075), rgba(255, 255, 255, 0.026)),
+    radial-gradient(circle at 100% 0%, rgba(255, 112, 65, 0.1), transparent 34%),
+    #080913;
+  padding: 28px;
+}
+
+.model-topline,
+.model-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.model-name {
+  color: var(--ink);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.model-tag,
+.model-meta span {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d1d6ee;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.model-meta {
+  margin-top: auto;
+}
+
 .whitepaper-tools {
   display: flex;
   flex-wrap: wrap;
@@ -581,7 +632,8 @@ pre {
   .grid.two,
   .feature-row,
   .section-head,
-  .flow {
+  .flow,
+  .model-grid {
     grid-template-columns: 1fr;
   }
 
