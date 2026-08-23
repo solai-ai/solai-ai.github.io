@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DApp Interest | SOLAI Network</title>
+    <meta name="description" content="Register interest in building DApps that use SOLAI Network inference infrastructure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Home</a><a href="technology.html">Technology</a><a href="network.html">Network</a><a class="active" href="dapps.html">DApps</a><a href="solai-coder.html">SOLAI Coder</a><a href="modelos/">Models</a><a href="token.html">Token</a><a href="roadmap.html">Roadmap</a><a href="whitepaper.html">Whitepaper</a><a href="sources.html">Sources</a>
+        </div>
+        <div class="nav-actions"><a class="btn primary" data-pump-link href="https://pump.fun/coin/Hy9XZ4Ae4oKtXYfuFzWkoNV18teCTpvWWu5PFD9Bpump">Support on Pump.fun</a></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="section-inner">
+          <span class="eyebrow">DApp Builders</span>
+          <h1>Register interest in building DApps powered by SOLAI inference.</h1>
+          <p class="lead">SOLAI Node is being designed as an inference layer for SOLAI Coder and for external DApps across multiple segments.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner dapp-layout">
+          <form class="dapp-form card" data-dapp-interest-form data-registry-path="assets/registry/solai-dapp-interest-7d3f6b81.json">
+            <div>
+              <span class="eyebrow">Interest Form</span>
+              <h2>Tell us what you want to build.</h2>
+            </div>
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" autocomplete="name" maxlength="120" required>
+            </label>
+            <label>
+              <span>Company or project</span>
+              <input name="company" type="text" autocomplete="organization" maxlength="160" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" maxlength="180" required>
+            </label>
+            <label>
+              <span>DApp segment</span>
+              <select name="segment" required>
+                <option value="">Select a segment</option>
+                <option>AI Agents</option>
+                <option>DeFi</option>
+                <option>Gaming</option>
+                <option>Social</option>
+                <option>Data / Analytics</option>
+                <option>Creator Tools</option>
+                <option>Enterprise</option>
+                <option>Infrastructure</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              <span>Short description</span>
+              <textarea name="description" rows="5" maxlength="700" placeholder="What inference workload would your DApp need?"></textarea>
+            </label>
+            <button class="btn primary" type="submit">Register interest</button>
+            <p class="form-note" data-dapp-form-status>Submissions are prepared as JSON entries for the SOLAI registry.</p>
+          </form>
+
+          <aside class="card registry-panel">
+            <span class="eyebrow">Public List</span>
+            <h2>DApp interest registry</h2>
+            <p>The public list is loaded from the registry JSON. New local submissions appear here immediately and can be exported for publishing.</p>
+            <div class="registry-actions">
+              <button class="btn" type="button" data-dapp-export>Download JSON</button>
+              <button class="btn ghost" type="button" data-dapp-copy>Copy JSON</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-inner">
+          <div class="section-head">
+            <div><span class="eyebrow">Registry</span><h2>Interested DApp builders.</h2></div>
+            <p>Entries may include contact email because this registry is intentionally public once published.</p>
+          </div>
+          <div class="dapp-registry" data-dapp-registry-list>
+            <article class="card"><p>Loading registry...</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="SOLAI logo"><span>SOLAI</span></a></div>
+        <div class="footer-links"><a href="network.html">Network</a><a href="roadmap.html">Roadmap</a><a href="whitepaper.html">Whitepaper</a></div>
+        <div class="footer-social" aria-label="SOLAI external links"><a href="https://x.com/solai_ai" target="_blank" rel="noopener noreferrer">X / Twitter</a><a href="https://t.me/SOLAIAIAGENT" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://www.npmjs.com/package/@solaiecosystem/solai" target="_blank" rel="noopener noreferrer">npmjs</a><a href="https://ollama.com/solaiai" target="_blank" rel="noopener noreferrer">Ollama</a><a href="https://huggingface.co/SOLAIAI" target="_blank" rel="noopener noreferrer">Hugging Face</a><a href="https://github.com/solai-ai/solai-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a data-pump-link href="https://pump.fun/coin/Hy9XZ4Ae4oKtXYfuFzWkoNV18teCTpvWWu5PFD9Bpump" target="_blank" rel="noopener noreferrer">Pump.fun</a></div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

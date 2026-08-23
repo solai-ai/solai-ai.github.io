@@ -236,3 +236,150 @@ async function loadOllamaModels() {
 }
 
 loadOllamaModels();
+
+const dappForm = document.querySelector("[data-dapp-interest-form]");
+const dappRegistryTarget = document.querySelector("[data-dapp-registry-list]");
+const dappExportButton = document.querySelector("[data-dapp-export]");
+const dappCopyButton = document.querySelector("[data-dapp-copy]");
+const dappFormStatus = document.querySelector("[data-dapp-form-status]");
+const dappRegistryPath = dappForm?.dataset.registryPath || "assets/registry/solai-dapp-interest-7d3f6b81.json";
+const dappLocalStorageKey = "solai.dappInterest.localEntries";
+let dappRegistry = {
+  registry: "SOLAI DApp Interest",
+  visibility: "public-by-url",
+  updated_at: new Date().toISOString(),
+  entries: [],
+};
+
+function safeJsonParse(value, fallback) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function getLocalDappEntries() {
+  return safeJsonParse(localStorage.getItem(dappLocalStorageKey) || "[]", []);
+}
+
+function setLocalDappEntries(entries) {
+  localStorage.setItem(dappLocalStorageKey, JSON.stringify(entries, null, 2));
+}
+
+function normalizeDappEntry(entry) {
+  return {
+    id: entry.id || `dapp_${Date.now().toString(36)}`,
+    name: String(entry.name || "").trim(),
+    company: String(entry.company || "").trim(),
+    email: String(entry.email || "").trim(),
+    segment: String(entry.segment || "").trim(),
+    description: String(entry.description || "").trim(),
+    submitted_at: entry.submitted_at || new Date().toISOString(),
+  };
+}
+
+function mergedDappRegistry() {
+  const byId = new Map();
+  for (const entry of [...(dappRegistry.entries || []), ...getLocalDappEntries()]) {
+    const normalized = normalizeDappEntry(entry);
+    if (normalized.name && normalized.company && normalized.email) {
+      byId.set(normalized.id, normalized);
+    }
+  }
+
+  return {
+    ...dappRegistry,
+    updated_at: new Date().toISOString(),
+    entries: [...byId.values()].sort((left, right) => right.submitted_at.localeCompare(left.submitted_at)),
+  };
+}
+
+function renderDappRegistry() {
+  if (!dappRegistryTarget) return;
+
+  const entries = mergedDappRegistry().entries;
+  if (!entries.length) {
+    dappRegistryTarget.innerHTML = "<article class=\"card\"><p>No DApp interest entries have been published yet.</p></article>";
+    return;
+  }
+
+  dappRegistryTarget.innerHTML = entries.map((entry) => `
+    <article class="card registry-card">
+      <h3>${escapeHtml(entry.company)} <span class="registry-tag">${escapeHtml(entry.segment || "DApp")}</span></h3>
+      <div class="registry-meta"><span>${escapeHtml(entry.name)}</span><a href="mailto:${encodeURIComponent(entry.email)}">${escapeHtml(entry.email)}</a></div>
+      ${entry.description ? `<p class="registry-description">${escapeHtml(entry.description)}</p>` : ""}
+    </article>
+  `).join("");
+}
+
+async function loadDappRegistry() {
+  if (!dappRegistryTarget && !dappForm) return;
+
+  try {
+    const response = await fetch(dappRegistryPath, { cache: "no-store" });
+    if (response.ok) {
+      const data = await response.json();
+      dappRegistry = {
+        ...dappRegistry,
+        ...data,
+        entries: Array.isArray(data.entries) ? data.entries : [],
+      };
+    }
+  } catch {
+    if (dappRegistryTarget) {
+      dappRegistryTarget.innerHTML = "<article class=\"card\"><p>Registry loading requires serving this folder over HTTP.</p></article>";
+    }
+  }
+
+  renderDappRegistry();
+}
+
+function dappRegistryJson() {
+  return JSON.stringify(mergedDappRegistry(), null, 2);
+}
+
+function downloadDappRegistry() {
+  const blob = new Blob([dappRegistryJson()], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "solai-dapp-interest-7d3f6b81.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+if (dappForm) {
+  dappForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(dappForm);
+    const entry = normalizeDappEntry(Object.fromEntries(formData.entries()));
+    entry.id = `dapp_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+
+    const localEntries = getLocalDappEntries();
+    localEntries.unshift(entry);
+    setLocalDappEntries(localEntries);
+    dappForm.reset();
+    renderDappRegistry();
+
+    if (dappFormStatus) {
+      dappFormStatus.textContent = "Entry added locally. Download or copy the JSON and publish it to the registry file when ready.";
+    }
+  });
+}
+
+if (dappExportButton) {
+  dappExportButton.addEventListener("click", downloadDappRegistry);
+}
+
+if (dappCopyButton) {
+  dappCopyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(dappRegistryJson());
+      if (dappFormStatus) dappFormStatus.textContent = "Registry JSON copied to clipboard.";
+    } catch {
+      if (dappFormStatus) dappFormStatus.textContent = "Clipboard copy failed. Use Download JSON instead.";
+    }
+  });
+}
+
+loadDappRegistry();
