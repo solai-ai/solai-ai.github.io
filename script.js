@@ -239,8 +239,6 @@ loadOllamaModels();
 
 const dappForm = document.querySelector("[data-dapp-interest-form]");
 const dappRegistryTarget = document.querySelector("[data-dapp-registry-list]");
-const dappExportButton = document.querySelector("[data-dapp-export]");
-const dappCopyButton = document.querySelector("[data-dapp-copy]");
 const dappFormStatus = document.querySelector("[data-dapp-form-status]");
 const dappAdminActions = document.querySelector("[data-dapp-admin-actions]");
 const dappRegistryPath = dappForm?.dataset.registryPath || "assets/registry/solai-dapp-interest-7d3f6b81.json";
@@ -372,8 +370,15 @@ if (dappForm) {
 }
 
 if (dappAdminActions && dappAdminMode) {
+  dappAdminActions.innerHTML = `
+    <button class="btn" type="button" data-dapp-export>Download JSON</button>
+    <button class="btn ghost" type="button" data-dapp-copy>Copy JSON</button>
+  `;
   dappAdminActions.hidden = false;
 }
+
+const dappExportButton = document.querySelector("[data-dapp-export]");
+const dappCopyButton = document.querySelector("[data-dapp-copy]");
 
 if (dappExportButton) {
   dappExportButton.addEventListener("click", downloadDappRegistry);
