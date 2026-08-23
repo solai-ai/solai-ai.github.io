@@ -43,11 +43,15 @@ navigation, but anyone with the URL can read it.
 
 ## Update flow
 
-1. Open `dapps.html` through the deployed site or a local static server.
+1. Open `dapps.html?registry_admin=1` through the deployed site or a local static
+   server.
 2. Submit a DApp interest entry through the form.
 3. Use `Download JSON` or `Copy JSON`.
 4. Replace the contents of `assets/registry/solai-dapp-interest-7d3f6b81.json`.
 5. Commit and push when ready to publish.
+
+The public `dapps.html` page does not show the export controls. They are only
+shown when the page is opened with `?registry_admin=1`.
 
 GitHub Pages is static, so the form cannot write directly to this JSON file on the
 server. Until a backend is connected, publishing new entries requires updating this
@@ -55,5 +59,6 @@ file in the repository.
 
 ## Visibility note
 
-Emails in this file are intentionally treated as public once committed and deployed.
-Do not add private or sensitive contact data unless public exposure is acceptable.
+Emails in this file are not rendered in the public list on `dapps.html`, but the
+JSON file remains public-by-URL after deployment. Do not add sensitive contact data
+unless public-by-URL exposure is acceptable.

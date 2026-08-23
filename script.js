@@ -242,8 +242,10 @@ const dappRegistryTarget = document.querySelector("[data-dapp-registry-list]");
 const dappExportButton = document.querySelector("[data-dapp-export]");
 const dappCopyButton = document.querySelector("[data-dapp-copy]");
 const dappFormStatus = document.querySelector("[data-dapp-form-status]");
+const dappAdminActions = document.querySelector("[data-dapp-admin-actions]");
 const dappRegistryPath = dappForm?.dataset.registryPath || "assets/registry/solai-dapp-interest-7d3f6b81.json";
 const dappLocalStorageKey = "solai.dappInterest.localEntries";
+const dappAdminMode = new URLSearchParams(window.location.search).get("registry_admin") === "1";
 let dappRegistry = {
   registry: "SOLAI DApp Interest",
   visibility: "public-by-url",
@@ -307,7 +309,7 @@ function renderDappRegistry() {
   dappRegistryTarget.innerHTML = entries.map((entry) => `
     <article class="card registry-card">
       <h3>${escapeHtml(entry.company)} <span class="registry-tag">${escapeHtml(entry.segment || "DApp")}</span></h3>
-      <div class="registry-meta"><span>${escapeHtml(entry.name)}</span><a href="mailto:${encodeURIComponent(entry.email)}">${escapeHtml(entry.email)}</a></div>
+      <div class="registry-meta"><span>${escapeHtml(entry.name)}</span></div>
       ${entry.description ? `<p class="registry-description">${escapeHtml(entry.description)}</p>` : ""}
     </article>
   `).join("");
@@ -362,9 +364,15 @@ if (dappForm) {
     renderDappRegistry();
 
     if (dappFormStatus) {
-      dappFormStatus.textContent = "Entry added locally. Download or copy the JSON and publish it to the registry file when ready.";
+      dappFormStatus.textContent = dappAdminMode
+        ? "Entry added locally. Use the admin export controls to publish the updated registry."
+        : "Entry added locally on this device. The SOLAI team can publish approved registry entries.";
     }
   });
+}
+
+if (dappAdminActions && dappAdminMode) {
+  dappAdminActions.hidden = false;
 }
 
 if (dappExportButton) {

@@ -76,10 +76,10 @@
           </form>
 
           <aside class="card registry-panel">
-            <span class="eyebrow">Public List</span>
+            <span class="eyebrow">Builder Registry</span>
             <h2>DApp interest registry</h2>
-            <p>The public list is loaded from the registry JSON. New local submissions appear here immediately and can be exported for publishing.</p>
-            <div class="registry-actions">
+            <p>Registered builders are listed publicly without email addresses. Contact details stay in the registry file for internal follow-up.</p>
+            <div class="registry-actions" data-dapp-admin-actions hidden>
               <button class="btn" type="button" data-dapp-export>Download JSON</button>
               <button class="btn ghost" type="button" data-dapp-copy>Copy JSON</button>
             </div>
@@ -91,7 +91,7 @@
         <div class="section-inner">
           <div class="section-head">
             <div><span class="eyebrow">Registry</span><h2>Interested DApp builders.</h2></div>
-            <p>Entries may include contact email because this registry is intentionally public once published.</p>
+            <p>The public view shows builder name, company, segment and DApp description.</p>
           </div>
           <div class="dapp-registry" data-dapp-registry-list>
             <article class="card"><p>Loading registry...</p></article>
