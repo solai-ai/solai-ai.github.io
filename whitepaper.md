@@ -305,7 +305,7 @@ The resulting architecture is:
 
 **Initial Supply:** 1,000,000,000 SOLAI
 
-**Initial Distribution:** 100% through Pump.fun
+**Trading:** SOLAI/USDT on Algorex — https://algorex.net/trade/SOLAI-USDT
 
 **Initial Private Allocation:** 0%
 
@@ -321,7 +321,7 @@ The initial token supply is designed around a fair-launch model.
 
 | Allocation                    |            Amount | Percentage |
 | ----------------------------- | ----------------: | ---------: |
-| Pump.fun Initial Distribution |     1,000,000,000 |       100% |
+| Public Initial Distribution |     1,000,000,000 |       100% |
 | Team Allocation               |                 0 |         0% |
 | VC Allocation                 |                 0 |         0% |
 | Private Sale                  |                 0 |         0% |
@@ -337,18 +337,20 @@ The initial design is based on a fixed supply.
 
 ---
 
-# 8. Pump.fun Initial Distribution
+# 8. SOLAI Trading
 
-Pump.fun serves as the initial token distribution and market bootstrapping mechanism.
+SOLAI is available for trading in the SOLAI/USDT market on Algorex:
 
-The SOLAI protocol itself is independent from the Pump.fun marketplace.
+https://algorex.net/trade/SOLAI-USDT
+
+The SOLAI protocol itself is independent from the Algorex marketplace.
 
 The conceptual relationship is:
 
 ```text
-Pump.fun
+Algorex (SOLAI/USDT)
    │
-   │ Initial SOLAI distribution
+   │ SOLAI trading
    ▼
 SOLAI Token
    │
@@ -362,9 +364,9 @@ SOLAI Protocol
    └── Task Clusters
 ```
 
-Pump.fun parameters, fees, graduation mechanics and external infrastructure are external dependencies and may change independently of SOLAI.
+Marketplace parameters, fees and external infrastructure are external dependencies and may change independently of SOLAI.
 
-The protocol should therefore never make its core functionality dependent on Pump.fun remaining unchanged.
+The protocol should therefore never make its core functionality dependent on a trading venue remaining unchanged.
 
 ---
 
@@ -3957,7 +3959,9 @@ SOLAI therefore aims to create an infrastructure layer where:
 
 **Solana**
 
-**Initial distribution through Pump.fun**
+**Trading: SOLAI/USDT on Algorex**
+
+https://algorex.net/trade/SOLAI-USDT
 
 **Ollama-powered decentralized compute**
 

@@ -8,11 +8,11 @@ if (toggle && nav) {
   });
 }
 
-const pumpLinks = document.querySelectorAll("[data-pump-link]");
-const configuredPumpUrl = window.SOLAI_PUMP_URL || "https://pump.fun/coin/Hy9XZ4Ae4oKtXYfuFzWkoNV18teCTpvWWu5PFD9Bpump";
+const tradeLinks = document.querySelectorAll("[data-trade-link]");
+const configuredTradeUrl = window.SOLAI_TRADE_URL || "https://algorex.net/trade/SOLAI-USDT";
 
-pumpLinks.forEach((link) => {
-  link.href = configuredPumpUrl;
+tradeLinks.forEach((link) => {
+  link.href = configuredTradeUrl;
   link.target = "_blank";
   link.rel = "noreferrer";
 });
